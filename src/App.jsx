@@ -12,9 +12,9 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* <Route index element={<WithHeaderExample />}></Route> */}
+        <Route index element={<WithHeaderExample />}></Route>
         <Route path="repos" element={<WithHeaderExample />}></Route>
-        <Route path="/repos/:repoId" element={<RepoPages />} />
+        <Route path="repos/:name" element={<RepoPages />} />
       </Routes>
     </BrowserRouter>
   );

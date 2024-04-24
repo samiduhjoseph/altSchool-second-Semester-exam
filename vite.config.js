@@ -8,6 +8,9 @@ export default defineConfig({
   define: {
     global: {},
   },
+  server: {
+    port: 3000,
+  },
   resolve: {
     alias: {
       "node-fetch": "isomorphic-fetch",
