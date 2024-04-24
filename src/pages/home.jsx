@@ -22,12 +22,11 @@ async function getRepositories(page) {
   const { data, headers } = await octokit.request(`GET /users/${login}/repos`, {
     owner: "github",
     repo: "docs",
-    per_page: 3,
+    per_page: 2,
     page,
   });
   const nextPattern = /(?<=<)([\S]*)(?=>; rel="last")/i;
   const url = headers.link.match(nextPattern)[0];
-  console.log(data, url.substring(url.length - 1));
   return { data, totalPages: url.substring(url.length - 1) };
 }
 //
@@ -35,15 +34,22 @@ function App() {
   const [repositories, setRepositories] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
+
   useEffect(() => {
-    (async () => {
-      const { data, totalPages } = await getRepositories(page);
+    const setRepositoriesAndTotalPages = async (_page) => {
+      console.log(_page);
+      const { data, totalPages } = await getRepositories(_page);
       setRepositories(data);
       setTotalPages(totalPages);
-    })();
+    };
+
+    setRepositoriesAndTotalPages(page);
   }, [page]);
-  console.log(repositories, totalPages, page);
-  //
+
+  const handlePageClick = (page) => {
+    setPage(page);
+  };
+  console.log(repositories);
   return (
     <div className="github">
       <NavBar repository={repositories} />
@@ -56,7 +62,11 @@ function App() {
         {/* <Outlet /> */}
       </div>
       <div>
-        <PaginationBasic totalPages={totalPages} currentPage={page} />
+        <PaginationBasic
+          onClick={handlePageClick}
+          totalPages={totalPages}
+          currentPage={page}
+        />
       </div>
     </div>
   );
@@ -71,10 +81,11 @@ function WithHeaderExample({ repository }) {
           <b>language:</b> {repository.language}
         </Card.Title>
         <Card.Text className="card__text">
-          With supporting text below as a natural lead-in to additional content.
+          this repo was created on <b>{repository.created_at.slice(0, 10)}</b>{" "}
+          by <b>{repository.owner.login}</b>
         </Card.Text>
         <Button variant="primary" className="card__btn">
-          {/* <Link to={`/repos/${repository.id}`}> view repo </Link> */}
+          {/* <Link to={/repos/${repository.id}}> view repo </Link> */}
           <Link className="card__link" to={`/repos/${repository.name}`}>
             {" "}
             view repo{" "}

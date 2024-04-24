@@ -20,33 +20,28 @@ function Eachrepo({ repository }) {
         </li>
       </ol>
       <div className="repo__details">
-        <p className="repo__text1">shoo</p>
-        <p className="repo__text2">when</p>
+        <p className="repo__text1">date created :</p>
+        <p className="repo__text2">{repository.created_at}</p>
       </div>
       <div className="repo__details">
-        <p className="repo__text1">shoo</p>
-        <p className="repo__text2">when</p>
+        <p className="repo__text1">main language :</p>
+        <p className="repo__text2">{repository.language}</p>
       </div>
       <div className="repo__details">
-        <p className="repo__text1">shoo</p>
-        <p className="repo__text2">when</p>
+        <p className="repo__text1">visibility :</p>
+        <p className="repo__text2">{repository.visibility}</p>
       </div>
       <div className="repo__details">
-        <p className="repo__text1">shoo</p>
-        <p className="repo__text2">when</p>
+        <p className="repo__text1">open issues :</p>
+        <p className="repo__text2">{repository.open_issues}</p>
       </div>
       <div className="repo__details">
-        <p className="repo__text1">shoo</p>
-        <p className="repo__text2">when</p>
+        <p className="repo__text1">file size :</p>
+        <p className="repo__text2">{repository.size + "kb"}</p>
       </div>
-      <div className="repo__details">
-        <p className="repo__text1">shoo</p>
-        <p className="repo__text2">when</p>
-      </div>
-      <div className="repo__details">
-        <p className="repo__text1">shoo</p>
-        <p className="repo__text2">when</p>
-      </div>
+      <a href={repository.svn_url}>
+        <button className="repo__button">view repo on github</button>
+      </a>
     </div>
   );
 }

@@ -6,10 +6,6 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   /* background-color: #260126; */
-  background-image: url(./assets/img5.jpg);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -25,10 +21,7 @@ a {
 
 body {
   margin: 0;
-  display: flex;
-  flex-direction: row;
-  /* place-items: center; */
-  /* min-width: 320px; */
+
   min-height: 100vh;
 }
 
@@ -41,26 +34,42 @@ h1 {
   display: flex;
   align-items: center;
   flex-direction: column;
-  max-width: 80rem;
+  max-width: 90rem;
+  margin: 0 auto;
 }
 .navbar {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 1rem;
   align-items: center;
   position: sticky;
   top: 0;
   z-index: 200;
-  background-color: #260126;
-  color: white;
+  /* background-color: #260126; */
+  border: 1px solid rgb(216, 216, 216);
+  color: #260126;
   width: 100%;
   margin: 1rem;
-  border-radius: 20px;
+  border-radius: 5px;
+  font-size: 2rem;
+  box-shadow: -1px -1px 84px -16px #2601264f;
+  backdrop-filter: blur(5px);
+}
+.navbar p {
+  margin-bottom: 2px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.navbar i {
+  font-size: 2.5rem;
 }
 .card__section {
   display: flex;
   flex-wrap: wrap;
-  margin: 1rem 0;
-  /* max-width: 70rem; */
+  margin: 2rem 0;
+  gap: 1rem;
+  max-width: 70rem;
+  justify-content: space-between;
 }
 .card {
   padding: 0;
@@ -74,21 +83,20 @@ h1 {
   flex-direction: column;
   gap: 0.7rem;
   flex: 1 0 20rem;
-  /* justify-content: flex-start;
-  align-items: flex-start; */
-  /* align-items: center; */
+  box-shadow: 4px 4px 0 0 #260126;
 }
 .card__head {
-  font-weight: 600;
+  font-weight: 700;
   color: white;
-  font-size: 1.1rem;
+  color: #260126;
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
   text-transform: capitalize;
-  border-bottom: 1px solid #260126;
-  background-color: rgb(255, 255, 255);
-  background-color: #260126;
+  border: 1px solid rgb(216, 216, 216);
+  background-color: #26012617;
+  /* background-color: #260126; */
   padding: 1rem;
   margin: 1rem;
-  border-radius: 10px;
+  border-radius: 20px !important;
   /* width: 92.5%; */
 }
 .card-body {
@@ -128,12 +136,17 @@ h1 {
 }
 /* repo page */
 .repo {
+  margin: 0 auto;
   background-color: white;
+  border: 1px solid #260126;
+  border-radius: 15px;
   color: #260126;
   max-width: 40rem;
   padding: 0.1rem 1rem 1rem;
   background-color: rgba(255, 255, 255, 0.733);
   backdrop-filter: blur(5px);
+  margin: 3rem auto;
+  box-shadow: 5px 5px 0 0 #260126;
 }
 .repo__head {
   background-color: #260126;
@@ -150,4 +163,44 @@ h1 {
 }
 .repo__list i {
   margin: 0 5px;
+}
+.repo__details {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #260126;
+  align-items: center;
+}
+.repo__details p {
+  margin: 0;
+  padding: 10px;
+}
+.repo__text1 {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.repo__button {
+  color: white;
+  padding: 6px 16px;
+  margin: 0.8rem 0 0;
+  border-radius: 10px;
+  width: 100%;
+  border: 1px solid #260126;
+  /* border: none; */
+  background-color: #2601267c;
+  /* background: none; */
+  transition: 200ms ease-in-out all;
+}
+.repo__button:hover {
+  background-color: #260126;
+}
+.pagination {
+  /* border-color: #260126; */
+  color: white;
+}
+.page-link {
+  background-color: #260126;
+  color: white;
+}
+.active {
+  background-color: white !important;
 }
